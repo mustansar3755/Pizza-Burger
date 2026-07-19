@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Work Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-charcoal: #1C1410;
+  --color-charcoal-2: #241A14;
+  --color-ember: #E8542A;
+  --color-ember-light: #FF7247;
+  --color-cheese: #F4A93C;
+  --color-cream: #F5EDE1;
+  --color-cream-dim: #C9BEB0;
+  --color-brick: #7A2618;
+  --color-line: #3A2C22;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.grill-divider span {
+  animation: sizzle 2.4s ease-in-out infinite;
+}
+.grill-divider span:nth-child(2) { animation-delay: .15s; }
+.grill-divider span:nth-child(3) { animation-delay: .3s; }
+.grill-divider span:nth-child(4) { animation-delay: .45s; }
+.grill-divider span:nth-child(5) { animation-delay: .6s; }
+.grill-divider span:nth-child(6) { animation-delay: .75s; }
+
+@keyframes sizzle {
+  0%, 100% { transform: skewX(-30deg) scaleY(1); opacity: .55; }
+  50% { transform: skewX(-30deg) scaleY(1.9); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grill-divider span { animation: none; opacity: .85; }
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  z-index: 50;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
